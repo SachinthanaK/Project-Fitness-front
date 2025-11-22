@@ -1,0 +1,97 @@
+.workout {
+  font-family: "Roboto", sans-serif;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light grey background for a fresh look */
+  text-align: center;
+}
+
+.workout__exercises {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.workout__exercise {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #ffffff; /* White background for each card */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px; /* Max width for large screens */
+  margin: 0 auto; /* Center the cards horizontally */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.workout__exercise:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.workout__exercise__image {
+  flex-shrink: 0;
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.workout__exercise__image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  width: 120px;
+  object-fit: cover;
+}
+
+.workout__exercise__content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.workout__exercise__content h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333; /* Darker color for improved readability */
+  margin: 0;
+}
+
+.workout__exercise__content .exercise-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #ff5722; /* Bright orange-red for visibility */
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.workout__exercise__content p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #666; /* Softer color for less emphasis */
+}
+
+.workout__exercises h3 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff5722; /* Matching color for consistency */
+  margin: 0;
+  padding: 12px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

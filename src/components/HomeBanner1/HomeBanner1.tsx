@@ -2,12 +2,28 @@ import React from "react";
 import CircularProgress from "@mui/joy/CircularProgress";
 import { AiOutlineEye } from "react-icons/ai";
 import "./Homebanner1.css";
-import { setDate } from "date-fns";
 
 const HomeBanner1 = () => {
   const [data, setData] = React.useState<any>(null);
 
   const getData = async () => {
+    fetch(process.env.NEXT_PUBLIC_BACKEND_API + "/report/getreport", {
+      method: "GET",
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.ok) {
+          setData(data.data);
+        } else {
+          setData([]);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        setData([]);
+      });
     // let temp = [
     //   {
     //     name: "Calories Intake",
@@ -53,42 +69,6 @@ const HomeBanner1 = () => {
     //   },
     // ];
     // setData(temp);
-    // console.log(temp);
-    /* fetch(process.env.NEXT_PUBLIC_BACKEND_API + "/report/getreport", {
-      method: "GET",
-      credentials: "include",
-    });
-    .then(res=> res.json())
-    .then(data => {
-      console.log(data)
-      if(data.ok){
-        setData (data.data)
-      } else {
-        setData ([])
-      }
-    })
-    .catch(err=>{
-      console.log(err)
-      setDefaultAutoSelectFamily([])
-    })*/
-    try {
-      const response = await fetch(
-        process.env.NEXT_PUBLIC_BACKEND_API + "/report/getreport",
-        {
-          method: "GET",
-          credentials: "include",
-        }
-      );
-      const result = await response.json();
-      if (response.ok) {
-        setData(result.data);
-      } else {
-        setData([]);
-      }
-    } catch (err) {
-      console.log(err);
-      setData([]); // Updated this to handle the error case
-    }
   };
 
   React.useEffect(() => {
@@ -117,6 +97,7 @@ const HomeBanner1 = () => {
         data.map((item: any, index: number) => {
           return (
             <div className="card" key={index}>
+              {" "}
               <div className="card-header">
                 <div className="card-header-box">
                   <div className="card-header-box-name">{item.name}</div>

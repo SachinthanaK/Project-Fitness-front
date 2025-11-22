@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import "./AuthPopup.css";
 import Image from "next/image";
@@ -5,7 +6,7 @@ import logo from "@/assets/logo.png";
 import Input from "@mui/joy/Input";
 import Select from "@mui/joy/Select";
 import Option from "@mui/joy/Option";
-import { AiFillDelete, AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose } from "react-icons/ai";
 import dayjs from "dayjs";
 
 //
@@ -44,6 +45,7 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
     dob: new Date(),
     activityLevel: "",
   });
+
   const [loginformData, setLoginFormData] = useState({
     email: "",
     password: "",
@@ -76,6 +78,7 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
         console.log(err);
       });
   };
+
   const handleSignup = () => {
     // console.log(process.env.NEXT_PUBLIC_BACKEND_API);
 
@@ -103,6 +106,7 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
         console.log(err);
       });
   };
+
   return (
     <div className="popup">
       <button
@@ -236,7 +240,6 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
               </Select>
 
               <label htmlFor="">Height</label>
-
               <Input
                 color="warning"
                 size="lg"

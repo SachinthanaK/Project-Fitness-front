@@ -1,4 +1,4 @@
-/* nav {
+nav {
   background-color: #1a1a1a;
   height: 60px;
   display: flex;
@@ -19,7 +19,6 @@ nav img {
   height: 40px;
   width: auto;
 }
-
 nav a {
   text-decoration: none;
   color: #fff;
@@ -28,60 +27,6 @@ nav a {
 nav a:hover {
   color: #ffc20e;
 }
-nav button {
-  background-color: #ffc20e /*var(--col1)*/
-/*border: none;
-  outline: none;
-  cursor: pointer;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  color: white;
-  transition: 0.3s ease-in-out;
-  padding: 10px;
-} */
-nav {
-  background-color: #121212;
-  height: 70px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 50px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  gap: 20px;
-}
-
-nav img {
-  height: 50px;
-  width: auto;
-}
-
-nav .nav-links {
-  display: flex;
-  gap: 30px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #fff;
-  transition: color 0.3s ease-in-out;
-}
-
-nav a:hover {
-  color: #ffc20e;
-}
-
-nav .auth-buttons {
-  display: flex;
-  gap: 20px;
-}
-
 nav button {
   background-color: #ffc20e;
   border: none;
@@ -90,11 +35,6 @@ nav button {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   color: white;
-  transition: background-color 0.3s ease-in-out;
-  padding: 10px 20px;
-  border-radius: 4px;
-}
-
-nav button:hover {
-  background-color: #ffb700;
+  transition: 0.3s ease-in-out;
+  padding: 10px;
 }

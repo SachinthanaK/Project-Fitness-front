@@ -3,13 +3,12 @@
   padding: 0;
 }
 
-root {
-  --coll: #ffc20e;
-}
 body {
   background-color: black;
 }
-
+:root {
+  --coll: #ffc20e;
+}
 .mainhead1 {
   font-size: 5rem; /* Adjusted to a slightly smaller size for balance */
   font-weight: 700; /* Slightly less bold */
@@ -63,6 +62,7 @@ body {
 }
 
 ::-webkit-scrollbar {
+  height: 4px;
   width: 4px;
 }
 
