@@ -37,16 +37,36 @@ const CalorieIntakePopup: React.FC<CaloriIntakePopupProps> = ({
   });
 
   const [items, SetItems] = React.useState<any>([]);
+  const [date, setDate] = React.useState<any>(dayjs(new Date()));
+  const [time, setTime] = React.useState<any>(dayjs(new Date()));
+
+  const [CalorieIntake, setCalorieIntake] = React.useState<any>({
+    item: "",
+    date: "",
+    quantity: "",
+    qunantitytype: "g",
+  });
+
+  const [items, SetItems] = React.useState<any>([]);
 
   // const selectedDay = (val: any) => {
   //   console.log(val);
   // const [value, setValue] = React.useState<Dayjs | null>(
   // dayjs("2022-04-17T15:30")
   // );
+  // const [value, setValue] = React.useState<Dayjs | null>(
+  // dayjs("2022-04-17T15:30")
+  // );
   // };
   //////////////////////
   // const [date, setDate] = React.useState<Date | null>(null); // Single date state
+  // const [date, setDate] = React.useState<Date | null>(null); // Single date state
 
+  // const handleChange = (d: DatepickerEvent) => {
+  //   const [startValue, endValue] = d;
+  //   // Use startValue as the selected date if not null
+  //   setDate(startValue || endValue || null);
+  // };
   // const handleChange = (d: DatepickerEvent) => {
   //   const [startValue, endValue] = d;
   //   // Use startValue as the selected date if not null
@@ -192,9 +212,13 @@ const CalorieIntakePopup: React.FC<CaloriIntakePopupProps> = ({
           onChange={(e) => {
             setCalorieIntake({ ...CalorieIntake, item: e.target.value });
           }}
+          onChange={(e) => {
+            setCalorieIntake({ ...CalorieIntake, item: e.target.value });
+          }}
         />
         <TextField
           id="outlined-basic"
+          label="Food item amount(in gms)"
           label="Food item amount(in gms)"
           variant="outlined"
           color="warning"
@@ -202,10 +226,19 @@ const CalorieIntakePopup: React.FC<CaloriIntakePopupProps> = ({
           onChange={(e) => {
             setCalorieIntake({ ...CalorieIntake, quantity: e.target.value });
           }}
+          type="number"
+          onChange={(e) => {
+            setCalorieIntake({ ...CalorieIntake, quantity: e.target.value });
+          }}
         />
+
 
         <div className="timebox">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <TimePicker
+              label="Time picker"
+              value={time}
+              onChange={(newValue: any) => setTime(newValue)}
             <TimePicker
               label="Time picker"
               value={time}
@@ -220,6 +253,24 @@ const CalorieIntakePopup: React.FC<CaloriIntakePopupProps> = ({
         </Button>
         <div className="hrline"></div>
         <div className="items">
+          {items.map((item: any) => {
+            return (
+              <div className="item">
+                <h3>{item.item}</h3>
+                <h3>
+                  {item.quantity}
+                  {item.quantitytype}
+                </h3>
+                <button
+                  onClick={() => {
+                    deleteCalorieIntake(item);
+                  }}
+                >
+                  <AiFillDelete />
+                </button>
+              </div>
+            );
+          })}
           {items.map((item: any) => {
             return (
               <div className="item">

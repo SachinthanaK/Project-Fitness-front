@@ -4,9 +4,11 @@ import "./HomeBanner2.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+import { useState } from "react";
 
 const HomeBanner2 = () => {
   const [workouts, setWorkouts] = React.useState<any[] | null>(null);
+  const [data, setData] = React.useState<any[] | null>(null);
   const [data, setData] = React.useState<any[] | null>(null);
 
   const getworkouts = async () => {
@@ -92,6 +94,7 @@ const HomeBanner2 = () => {
   };
 
   React.useEffect(() => {
+    getData();
     getData();
   }, []);
 

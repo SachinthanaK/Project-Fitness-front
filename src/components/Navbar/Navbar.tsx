@@ -9,7 +9,6 @@ import AuthPopup from "../AuthPopup/AuthPopup";
 
 const Navbar = () => {
   const [isloggedin, setIsloggedin] = React.useState<boolean>(false);
-
   const [showpopup, setShowpopup] = React.useState<boolean>(false);
   const checklogin = async () => {
     fetch(process.env.NEXT_PUBLIC_BACKEND_API + "/auth/checklogin", {
