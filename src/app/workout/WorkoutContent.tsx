@@ -1,5 +1,5 @@
 import React from "react";
-import "./WorkoutContent.css";
+import "./workoutPage.css";
 import { useSearchParams } from "next/navigation";
 
 const WorkoutContent = () => {
