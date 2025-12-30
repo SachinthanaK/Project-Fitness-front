@@ -1,7 +1,7 @@
 import React from "react";
 import CircularProgress from "@mui/joy/CircularProgress";
 import { AiOutlineEye } from "react-icons/ai";
-import "./Homebanner1.css";
+import "./HomeBanner1.css";
 
 const HomeBanner1 = () => {
   const [data, setData] = React.useState<any>(null);
