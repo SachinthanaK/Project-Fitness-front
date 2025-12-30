@@ -9,7 +9,6 @@ import { useState } from "react";
 const HomeBanner2 = () => {
   const [workouts, setWorkouts] = React.useState<any[] | null>(null);
   const [data, setData] = React.useState<any[] | null>(null);
-  const [data, setData] = React.useState<any[] | null>(null);
 
   const getworkouts = async () => {
     let data: any = [
