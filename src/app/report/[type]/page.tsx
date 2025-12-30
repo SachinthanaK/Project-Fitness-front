@@ -12,15 +12,15 @@ import {
 } from "@meinefinsternis/react-horizontal-date-picker";
 import { enUS } from "date-fns/locale";
 import { title } from "process";
-import { title } from "process";
+// import { title } from "process";
 
 const page = () => {
   const color = "#ffc20e";
   const pathname = usePathname();
   console.log(pathname);
 
-  const pathname = usePathname();
-  console.log(pathname);
+  // const pathname = usePathname();
+  // console.log(pathname);
 
   const chartsParams = {
     // margin: { bottom: 20, left: 25, right: 5 },
