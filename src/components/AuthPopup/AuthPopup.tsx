@@ -9,17 +9,14 @@ import Option from "@mui/joy/Option";
 import { AiOutlineClose } from "react-icons/ai";
 import dayjs from "dayjs";
 
-//
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
 import { DesktopDatePicker } from "@mui/x-date-pickers";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 interface AuthPopupProps {
   setShowpopup: React.Dispatch<React.SetStateAction<boolean>>;
 }
-
 interface SignupFormData {
   name: String | null;
   email: String | null;
@@ -45,15 +42,12 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
     dob: new Date(),
     activityLevel: "",
   });
-
   const [loginformData, setLoginFormData] = useState({
     email: "",
     password: "",
   });
 
   const handleLogin = () => {
-    console.log(loginformData);
-
     fetch(process.env.NEXT_PUBLIC_BACKEND_API + "/auth/login", {
       method: "POST",
       headers: {
@@ -64,11 +58,9 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-
+        console.log(data); //this shows the response from the server
         if (data.ok) {
           toast.success(data.message);
-
           setShowpopup(false);
         } else {
           toast.error(data.message);
@@ -80,8 +72,6 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
   };
 
   const handleSignup = () => {
-    // console.log(process.env.NEXT_PUBLIC_BACKEND_API);
-
     fetch(process.env.NEXT_PUBLIC_BACKEND_API + "/auth/register", {
       method: "POST",
       headers: {
@@ -92,11 +82,10 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        console.log(data); //this shows the response from the server
 
         if (data.ok) {
           toast.success(data.message);
-
           setShowSignup(false);
         } else {
           toast.error(data.message);
@@ -126,10 +115,18 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
             <h1>Signup to become a freak</h1>
             <form action="">
               <Input
-                color="warning"
+                color="neutral"
                 placeholder="name"
-                size="lg"
-                variant="solid"
+                size="md"
+                variant="outlined"
+                slotProps={{
+                  input: {
+                    style: {
+                      borderRadius: "8px",
+                      padding: "10px 12px",
+                    },
+                  },
+                }}
                 onChange={(e) => {
                   setSignupFormData({
                     ...signupformData,
@@ -138,10 +135,18 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
                 }}
               />
               <Input
-                color="warning"
+                color="neutral"
                 placeholder="email"
-                size="lg"
-                variant="solid"
+                size="md"
+                variant="outlined"
+                slotProps={{
+                  input: {
+                    style: {
+                      borderRadius: "8px",
+                      padding: "10px 12px",
+                    },
+                  },
+                }}
                 onChange={(e) => {
                   setSignupFormData({
                     ...signupformData,
@@ -150,11 +155,19 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
                 }}
               />
               <Input
-                color="warning"
+                color="neutral"
                 placeholder="password"
-                size="lg"
-                variant="solid"
+                size="md"
+                variant="outlined"
                 type="password"
+                slotProps={{
+                  input: {
+                    style: {
+                      borderRadius: "8px",
+                      padding: "10px 12px",
+                    },
+                  },
+                }}
                 onChange={(e) => {
                   setSignupFormData({
                     ...signupformData,
@@ -164,11 +177,19 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
               />
 
               <Input
-                color="warning"
-                size="lg"
-                variant="solid"
+                color="neutral"
+                size="md"
+                variant="outlined"
                 type="number"
                 placeholder="Weight in kg"
+                slotProps={{
+                  input: {
+                    style: {
+                      borderRadius: "8px",
+                      padding: "10px 12px",
+                    },
+                  },
+                }}
                 onChange={(e) => {
                   setSignupFormData({
                     ...signupformData,
@@ -178,10 +199,10 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
               />
 
               <Select
-                color="warning"
+                color="neutral"
                 placeholder="Activity Level"
-                size="lg"
-                variant="solid"
+                size="md"
+                variant="outlined"
                 onChange={(
                   event: React.SyntheticEvent | null,
                   newValue: string | null
@@ -200,10 +221,10 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
               </Select>
 
               <Select
-                color="warning"
+                color="neutral"
                 placeholder="Goal"
-                size="lg"
-                variant="solid"
+                size="md"
+                variant="outlined"
                 onChange={(
                   event: React.SyntheticEvent | null,
                   newValue: string | null
@@ -220,10 +241,10 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
               </Select>
 
               <Select
-                color="warning"
+                color="neutral"
                 placeholder="Gender"
-                size="lg"
-                variant="solid"
+                size="md"
+                variant="outlined"
                 onChange={(
                   event: React.SyntheticEvent | null,
                   newValue: string | null
@@ -241,11 +262,19 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
 
               <label htmlFor="">Height</label>
               <Input
-                color="warning"
-                size="lg"
-                variant="solid"
+                color="neutral"
+                size="md"
+                variant="outlined"
                 type="number"
                 placeholder="cm"
+                slotProps={{
+                  input: {
+                    style: {
+                      borderRadius: "8px",
+                      padding: "10px 12px",
+                    },
+                  },
+                }}
                 onChange={(e) => {
                   setSignupFormData({
                     ...signupformData,
@@ -297,13 +326,21 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
             <Image src={logo} alt="Logo" />
           </div>
           <div className="right">
-            <h1>Login to become a freak</h1>
+            <h1>Login to become fitness</h1>
             <form action="">
               <Input
-                color="warning"
-                placeholder="email"
-                size="lg"
-                variant="solid"
+                color="neutral"
+                placeholder="Email"
+                size="md"
+                variant="outlined"
+                slotProps={{
+                  input: {
+                    style: {
+                      borderRadius: "8px",
+                      padding: "10px 12px",
+                    },
+                  },
+                }}
                 onChange={(e) => {
                   setLoginFormData({
                     ...loginformData,
@@ -313,11 +350,19 @@ const AuthPopup: React.FC<AuthPopupProps> = ({ setShowpopup }) => {
               />
 
               <Input
-                color="warning"
-                placeholder="password"
-                size="lg"
-                variant="solid"
+                color="neutral"
+                placeholder="Password"
+                size="md"
+                variant="outlined"
                 type="password"
+                slotProps={{
+                  input: {
+                    style: {
+                      borderRadius: "8px",
+                      padding: "10px 12px",
+                    },
+                  },
+                }}
                 onChange={(e) => {
                   setLoginFormData({
                     ...loginformData,
