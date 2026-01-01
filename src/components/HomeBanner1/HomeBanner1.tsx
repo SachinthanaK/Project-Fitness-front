@@ -24,50 +24,6 @@ const HomeBanner1 = () => {
         console.log(err);
         setData([]);
       });
-    //   {
-    //     name: "Calories Intake",
-    //     value: 2000,
-    //     unit: "kcal",
-    //     goal: 2500,
-    //     goalUnit: "kcal",
-    //   },
-    //   {
-    //     name: "Sleep",
-    //     value: 8,
-    //     unit: "hrs",
-    //     goal: 8,
-    //     goalUnit: "hrs",
-    //   },
-    //   {
-    //     name: "Steps",
-    //     value: 50,
-    //     unit: "steps",
-    //     goal: 10000,
-    //     goalUnit: "steps",
-    //   },
-    //   {
-    //     name: "Water",
-    //     value: 2000,
-    //     unit: "ml",
-    //     goal: 3000,
-    //     goalUnit: "ml",
-    //   },
-    //   {
-    //     name: "Weight",
-    //     value: 75,
-    //     unit: "kg",
-    //     goal: 70,
-    //     goalUnit: "kg",
-    //   },
-    //   {
-    //     name: "Workout",
-    //     value: 2,
-    //     unit: "days",
-    //     goal: 6,
-    //     goalUnit: "days",
-    //   },
-    // ];
-    // setData(temp);
   }, []);
 
   React.useEffect(() => {
@@ -82,22 +38,6 @@ const HomeBanner1 = () => {
       window.removeEventListener("auth:login", handleAuthLogin);
     };
   }, [getData]);
-
-  // function simplifyFraction(
-  //   numerator: number,
-  //   denominator: number
-  // ): [number, number] {
-  //   function gcd(a: number, b: number): number {
-  //     return b === 0 ? a : gcd(b, a % b);
-  //   }
-  //   const commonDivisor: number = gcd(numerator, denominator);
-
-  //   // Simplify the fraction
-  //   const simplifiedNumerator: number = numerator / commonDivisor;
-  //   const simplifiedDenominator: number = denominator / commonDivisor;
-
-  //   return [simplifiedNumerator, simplifiedDenominator];
-  // }
 
   return (
     <div className="meters">
@@ -134,9 +74,6 @@ const HomeBanner1 = () => {
                   <span>{parseInt(item.value)}</span>
                   <span className="hrline"></span>
                   <span>{parseInt(item.goal)}</span>
-                  {/* {simplifyFraction(item.value, item.goal)[0] +
-                    " / " +
-                    simplifyFraction(item.value, item.goal)[1]} */}
                 </div>
               </CircularProgress>
               <button

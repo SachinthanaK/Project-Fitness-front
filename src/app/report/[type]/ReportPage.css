@@ -1,58 +1,7 @@
-/* .reportpage {
-  background-color: white;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.reportpage .s1 {
-  width: 40%;
-  padding: 10px;
-}
-
-.reportpage .s2 {
-  width: 40%;
-  padding: 10px;
-}
-
-.reportpage .s3 {
-  width: 40%;
-  padding: 10px;
-}
-
-.reportpage .s4 {
-  width: 40%;
-  padding: 10px;
-}
-
-.reportpage .editbutton {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  /* padding: 10px; */
-/*border: none;
-  border-radius: 50%;
-  background-color: #ffc20e;
-  color: white;
-  font-size: 30px;
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-}
-
-.reportpage .editbutton:hover {
-  background-color: black;
-  color: var(--col1);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
-} */
-
 .reportpage {
   background-color: #f9f9f9; /* Soft background color for a modern look */
   width: 100%;
-  min-height: 100vh;
+  min-height: 93vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -78,7 +27,7 @@
   right: 20px; /* Increased distance from right */
   border: none;
   border-radius: 50%;
-  background-color: #007bff; /* Professional blue */
+  background-color: #ffc20e; /* Professional blue */
   color: white;
   font-size: 24px; /* Reduced font size for better fit */
   width: 60px; /* Adjusted width */
@@ -89,6 +38,6 @@
 }
 
 .reportpage .editbutton:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #f9bc05; /* Darker blue on hover */
   transform: scale(1.1); /* Slight zoom effect on hover */
 }
