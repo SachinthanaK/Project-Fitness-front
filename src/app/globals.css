@@ -6,6 +6,11 @@
 body {
   background-color: black;
 }
+
+main {
+  overflow: hidden;
+}
+
 :root {
   --coll: #ffc20e;
 }

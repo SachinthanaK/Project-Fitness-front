@@ -6,7 +6,7 @@ import "./HomeBanner1.css";
 const HomeBanner1 = () => {
   const [data, setData] = React.useState<any>(null);
 
-  const getData = async () => {
+  const getData = React.useCallback(() => {
     fetch(process.env.NEXT_PUBLIC_BACKEND_API + "/report/getreport", {
       method: "GET",
       credentials: "include",
@@ -24,7 +24,6 @@ const HomeBanner1 = () => {
         console.log(err);
         setData([]);
       });
-    // let temp = [
     //   {
     //     name: "Calories Intake",
     //     value: 2000,
@@ -69,11 +68,20 @@ const HomeBanner1 = () => {
     //   },
     // ];
     // setData(temp);
-  };
+  }, []);
 
   React.useEffect(() => {
     getData();
-  }, []);
+  }, [getData]);
+
+  React.useEffect(() => {
+    const handleAuthLogin = () => getData();
+    window.addEventListener("auth:login", handleAuthLogin);
+
+    return () => {
+      window.removeEventListener("auth:login", handleAuthLogin);
+    };
+  }, [getData]);
 
   // function simplifyFraction(
   //   numerator: number,
@@ -116,6 +124,10 @@ const HomeBanner1 = () => {
                 determinate
                 size="lg"
                 variant="solid"
+                sx={{
+                  "--CircularProgress-progressColor": "#ffc20e",
+                  "--CircularProgress-trackColor": "rgba(255, 255, 255, 0.12)",
+                }}
                 value={(item.value / item.goal) * 100}
               >
                 <div className="textincircle">
