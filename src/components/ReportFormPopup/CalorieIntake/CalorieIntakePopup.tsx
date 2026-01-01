@@ -33,37 +33,17 @@ const CalorieIntakePopup: React.FC<CaloriIntakePopupProps> = ({
     item: "",
     date: "",
     quantity: "",
-    qunantitytype: "g",
+    quantitytype: "g",
   });
 
   const [items, SetItems] = React.useState<any>([]);
 
-  // const selectedDay = (val: any) => {
-  //   console.log(val);
-  // const [value, setValue] = React.useState<Dayjs | null>(
-  // dayjs("2022-04-17T15:30")
-  // );
-  // const [value, setValue] = React.useState<Dayjs | null>(
-  // dayjs("2022-04-17T15:30")
-  // );
-  // };
-  //////////////////////
-  // const [date, setDate] = React.useState<Date | null>(null); // Single date state
-  // const [date, setDate] = React.useState<Date | null>(null); // Single date state
-
-  // const handleChange = (d: DatepickerEvent) => {
-  //   const [startValue, endValue] = d;
-  //   // Use startValue as the selected date if not null
-  //   setDate(startValue || endValue || null);
-  // };
-  // const handleChange = (d: DatepickerEvent) => {
-  //   const [startValue, endValue] = d;
-  //   // Use startValue as the selected date if not null
-  //   setDate(startValue || endValue || null);
-  // };
-  //////////////////////////////////////////
-
   const saveCalorieIntake = async () => {
+    if (!CalorieIntake.item || !CalorieIntake.quantity) {
+      toast.error("Item and quantity are required");
+      return;
+    }
+
     let tempdate = date.format("YYYY-MM-DD");
     let temptime = time.format("HH:mm:ss");
     let tempdatetime = tempdate + " " + temptime;
@@ -82,7 +62,7 @@ const CalorieIntakePopup: React.FC<CaloriIntakePopupProps> = ({
         body: JSON.stringify({
           item: CalorieIntake.item,
           date: finaldatetime,
-          quantity: CalorieIntake.quantity,
+          quantity: parseFloat(CalorieIntake.quantity),
           quantitytype: CalorieIntake.quantitytype,
         }),
       }
@@ -93,7 +73,8 @@ const CalorieIntakePopup: React.FC<CaloriIntakePopupProps> = ({
           toast.success("Calorie intake added successfully");
           getCalorieIntake();
         } else {
-          toast.error("Error in adding calorie intake");
+          toast.error(data.message || "Error in adding calorie intake here");
+          console.error("Add calorie intake failed", data);
         }
       })
       .catch((err) => {
