@@ -52,6 +52,18 @@ const Navbar = () => {
     checklogin();
   }, [showpopup]);
 
+  const handleProfileClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (isloggedin) {
+      window.location.href = "/profile";
+    } else {
+      setShowpopup(true);
+      toast.info("Please login to view your profile", {
+        position: "top-center",
+      });
+    }
+  };
+
   return (
     <nav>
       <Image
@@ -64,7 +76,9 @@ const Navbar = () => {
       <div className="tabs">
         <Link href="/">Home</Link>
         <Link href="/about">About</Link>
-        <Link href="/profile">Profile</Link>
+        <a href="/profile" onClick={handleProfileClick}>
+          Profile
+        </a>
       </div>
 
       {isloggedin ? (
