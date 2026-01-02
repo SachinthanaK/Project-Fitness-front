@@ -1,0 +1,259 @@
+.aboutContainer {
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+  padding-bottom: 50px;
+}
+
+.heroSection {
+  background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+  padding: 80px 20px 60px;
+  text-align: center;
+  border-bottom: 2px solid rgba(255, 194, 14, 0.3);
+}
+
+.mainTitle {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background: linear-gradient(45deg, #fcb045, #ffc20e, #fcb045);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: #ccc;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+.contentWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  margin: 60px 0;
+  padding: 40px 30px;
+  background-color: #121212;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 194, 14, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.sectionContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #ffc20e;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.sectionText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ddd;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.featureItem {
+  background-color: #1b1b1b;
+  padding: 25px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 194, 14, 0.15);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.featureItem:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 194, 14, 0.4);
+}
+
+.featureItem h3 {
+  font-size: 1.3rem;
+  color: #ffc20e;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.featureItem p {
+  font-size: 1rem;
+  color: #bbb;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.feedbackSection {
+  margin: 60px 0;
+  padding: 50px 30px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #121212 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 194, 14, 0.3);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.feedbackContent {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.feedbackSubtitle {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 35px;
+  text-align: center;
+  font-weight: 300;
+}
+
+.feedbackForm {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-size: 1rem;
+  color: #ffc20e;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.formGroup input,
+.formGroup textarea,
+.ratingSelect {
+  padding: 12px 15px;
+  background-color: #1b1b1b;
+  border: 1px solid rgba(255, 194, 14, 0.3);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.ratingSelect:focus {
+  outline: none;
+  border-color: #ffc20e;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: #666;
+}
+
+.ratingSelect {
+  cursor: pointer;
+}
+
+.submitButton {
+  padding: 14px 30px;
+  background-color: #ffc20e;
+  border: none;
+  border-radius: 6px;
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 10px;
+}
+
+.submitButton:hover {
+  background-color: #fcb045;
+  transform: translateY(-2px);
+}
+
+.submitButton:active {
+  transform: translateY(0);
+}
+
+.successMessage {
+  background-color: #1b1b1b;
+  border: 2px solid #ffc20e;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+}
+
+.successMessage p {
+  font-size: 1.2rem;
+  color: #ffc20e;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mainTitle {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .sectionText {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 30px 20px;
+  }
+
+  .feedbackSection {
+    padding: 40px 20px;
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSection {
+    padding: 60px 15px 40px;
+  }
+
+  .mainTitle {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+}
