@@ -24,7 +24,31 @@ const page = () => {
 
   const chartsParams = {
     height: 400,
-    margin: { top: 20, bottom: 40, left: 60, right: 20 },
+    margin: { top: 15, bottom: 50, left: 60, right: 15 },
+    sx: {
+      "& .MuiChartsAxis-line": {
+        stroke: "rgba(255, 194, 14, 0.4)",
+      },
+      "& .MuiChartsAxis-tick": {
+        stroke: "rgba(255, 194, 14, 0.4)",
+      },
+      "& .MuiChartsAxis-tickLabel": {
+        fill: "#ffc20e !important",
+        fontWeight: 400,
+      },
+      "& .MuiChartsAxis-label": {
+        fill: "#ffc20e !important",
+        fontWeight: 500,
+        fontSize: "13px",
+      },
+      "& .MuiChartsLegend-series text": {
+        fill: "#ffc20e !important",
+        fontWeight: 500,
+      },
+      "& .MuiChartsGrid-line": {
+        stroke: "rgba(255, 194, 14, 0.08)",
+      },
+    },
   };
 
   const [dataS1, setDataS1] = React.useState<any>(null);
@@ -153,7 +177,7 @@ const page = () => {
   return (
     <div className="reportpage">
       <div className="chartContainer">
-        <h2 className="chartTitle">Calorie Intake History</h2>
+        <h2 className="chartTitle">Calorie Intake</h2>
         {dataS1 && dataS1.data && dataS1.data.length > 0 ? (
           <LineChart
             xAxis={[
@@ -173,11 +197,12 @@ const page = () => {
                 data: dataS1.data,
                 label: dataS1.title,
                 color: dataS1.color,
-                curve: "linear",
+                curve: "monotoneX",
                 showMark: true,
+                area: true,
               },
             ]}
-            grid={{ horizontal: true }}
+            grid={{ vertical: false, horizontal: true }}
             {...chartsParams}
           />
         ) : (
