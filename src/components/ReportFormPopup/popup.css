@@ -7,7 +7,7 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7); /* Darker overlay for better focus */
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 1000;
 }
 
@@ -16,73 +16,129 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  background-color: #ffffff; /* Clean white background */
-  width: 400px; /* Slightly narrower for a more compact look */
-  max-height: 90%; /* Increased max-height for more content visibility */
-  padding: 20px;
+  background-color: #121212;
+  width: 420px;
+  max-height: 90%;
+  padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  overflow-y: auto; /* Vertical scroll only */
+  border: 1px solid rgba(255, 194, 14, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+}
+
+/* MUI TextField Styling */
+.popupbox .MuiTextField-root .MuiOutlinedInput-root {
+  color: #fff;
+}
+
+.popupbox .MuiTextField-root .MuiOutlinedInput-input {
+  color: #fff;
+}
+
+.popupbox .MuiTextField-root .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 194, 14, 0.3);
+}
+
+.popupbox .MuiTextField-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(255, 194, 14, 0.5);
+}
+
+.popupbox .MuiTextField-root .MuiInputLabel-root {
+  color: rgba(255, 194, 14, 0.7);
+}
+
+.popupbox .MuiTextField-root.Mui-focused .MuiInputLabel-root {
+  color: #ffc20e;
+}
+
+/* MUI Button Styling */
+.popupbox .MuiButton-containedWarning {
+  background-color: #ffc20e;
+  color: #000;
+}
+
+.popupbox .MuiButton-containedWarning:hover {
+  background-color: #fcb045;
+}
+
+/* MUI DatePicker/TimePicker Styling */
+.popupbox .MuiInputBase-root {
+  color: #fff;
+}
+
+.popupbox .MuiInputBase-input {
+  color: #fff;
+}
+
+.popupbox .MuiSvgIcon-root {
+  color: #ffc20e;
 }
 
 .popupbox .hrline {
   width: 100%;
-  height: 2px; /* Slightly thicker line for prominence */
-  background-color: #ff5722; /* Bright, energetic color */
-  margin: 20px 0;
+  height: 1px;
+  background-color: rgba(255, 194, 14, 0.2);
+  margin: 15px 0;
 }
 
 .popupbox .items {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 }
 
 .popupbox .items .item {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 12px;
+  background-color: rgba(255, 194, 14, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 194, 14, 0.15);
 }
 
 .popupbox .items .item h3 {
   font-size: 14px;
   font-weight: 500;
-  color: #333; /* Darker color for better readability */
+  color: #fff;
 }
 
 .popupbox .items .item button {
-  background-color: #ff5722; /* Energetic color for buttons */
-  color: white;
-  border: none;
+  background-color: transparent;
+  color: #ffc20e;
+  border: 1px solid rgba(255, 194, 14, 0.4);
   border-radius: 6px;
-  padding: 8px 12px;
-  font-size: 14px;
+  padding: 6px 10px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .popupbox .items .item button:hover {
-  background-color: #e64a19; /* Slightly darker shade on hover */
-  transform: scale(1.05); /* Slight zoom effect for interactivity */
+  background-color: rgba(255, 194, 14, 0.1);
+  border-color: #ffc20e;
 }
 
 .popupbox .close {
-  background-color: #333; /* Darker background for the close button */
-  color: #ffffff; /* White text for contrast */
-  width: 36px;
-  height: 36px;
-  border: none;
+  background-color: transparent;
+  color: #ffc20e;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(255, 194, 14, 0.3);
   border-radius: 50%;
   font-size: 20px;
   cursor: pointer;
   line-height: 0;
   position: absolute;
-  top: 10px;
-  right: 10px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  top: 15px;
+  right: 15px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .popupbox .close:hover {
-  background-color: #555; /* Lighter shade on hover */
-  transform: scale(1.1); /* Slight zoom effect on hover */
+  background-color: rgba(255, 194, 14, 0.1);
+  border-color: #ffc20e;
 }
