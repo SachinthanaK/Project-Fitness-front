@@ -23,8 +23,8 @@ const page = () => {
   // console.log(pathname);
 
   const chartsParams = {
-    // margin: { bottom: 20, left: 25, right: 5 },
-    height: 300,
+    height: 400,
+    margin: { top: 20, bottom: 40, left: 60, right: 20 },
   };
 
   const [dataS1, setDataS1] = React.useState<any>(null);
@@ -52,15 +52,14 @@ const page = () => {
           if (data.ok) {
             let temp = data.data.map((item: any) => {
               return {
-                date: item.data,
+                date: item.date,
                 value: item.calorieIntake,
                 unit: "kcal",
               };
             });
 
             let dataForLineChart = temp.map((item: any) => {
-              let val = JSON.stringify(item.value);
-              return val;
+              return parseInt(item.value);
             });
             let dataForXAxis = temp.map((item: any) => {
               let val = new Date(item.date);
@@ -69,12 +68,12 @@ const page = () => {
 
             setDataS1({
               data: dataForLineChart,
-              title: "1 Day Calorie Intake",
+              title: "Calorie Intake (kcal)",
               color: color,
               xAxis: {
                 data: dataForXAxis,
-                label: "Last 10 Days",
-                scaleType: "time",
+                label: "Date",
+                scaleType: "point",
               },
             });
           } else {
@@ -128,8 +127,7 @@ const page = () => {
         },
       ];
       let dataForLineChart = temp.map((item: any) => {
-        let val = JSON.stringify(item.value);
-        return val;
+        return parseInt(item.value);
       });
       let dataForXAxis = temp.map((item: any) => {
         let val = new Date(item.date);
@@ -137,12 +135,12 @@ const page = () => {
       });
       setDataS1({
         data: dataForLineChart,
-        title: "1 Day Calorie Intake",
+        title: "Calorie Intake (kcal)",
         color: color,
         xAxis: {
           data: dataForXAxis,
-          label: "Last 10 Days",
-          scaleType: "time",
+          label: "Date",
+          scaleType: "point",
         },
       });
     }
@@ -154,8 +152,9 @@ const page = () => {
 
   return (
     <div className="reportpage">
-      <div className="s1">
-        {dataS1 && (
+      <div className="chartContainer">
+        <h2 className="chartTitle">Calorie Intake History</h2>
+        {dataS1 && dataS1.data && dataS1.data.length > 0 ? (
           <LineChart
             xAxis={[
               {
@@ -164,7 +163,8 @@ const page = () => {
                 scaleType: dataS1.xAxis.scaleType,
                 label: dataS1.xAxis.label,
                 valueFormatter: (date: any) => {
-                  return date.getDate().toString();
+                  const d = new Date(date);
+                  return `${d.getMonth() + 1}/${d.getDate()}`;
                 },
               },
             ]}
@@ -173,21 +173,23 @@ const page = () => {
                 data: dataS1.data,
                 label: dataS1.title,
                 color: dataS1.color,
+                curve: "linear",
+                showMark: true,
               },
             ]}
+            grid={{ horizontal: true }}
             {...chartsParams}
           />
+        ) : (
+          <div className="noData">
+            No calorie intake data available. Add your first entry!
+          </div>
         )}
       </div>
 
       <button
         className="editbutton"
         onClick={() => {
-          if (pathname == "/report/Calorie%20Intake") {
-            setShowCalorieIntakePopup(true);
-          } else {
-            alert("show popup for other reports");
-          }
           if (pathname == "/report/Calorie%20Intake") {
             setShowCalorieIntakePopup(true);
           } else {
